@@ -8,12 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+      ./packages.nix
     ];
   # stylix
   stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,19 +84,7 @@
     #  thunderbird
     ];
   };
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    backupFileExtension = "backup";
-    sharedModules = [{
-    stylix.targets.neovim.enable = false;
-  }];
-    users = {
-      "chris" = import ./home.nix;
-    };
-  };
+
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "chris";
@@ -118,16 +105,6 @@
     #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
-  
-  #programs.neovim = {
-  #  enable = true;
-  #  defaultEditor = true;
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  withNodeJs = true;
-  #  withPython3 = true;
-  #  withRuby = true;
-  #};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
