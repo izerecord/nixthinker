@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
+  # stylix
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -47,6 +51,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  # Hyprland
+  programs.hyprland.enable = true; # enable Hyprland
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -81,7 +87,13 @@
   };
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+    backupFileExtension = "backup";
+    sharedModules = [{
+    stylix.targets.neovim.enable = false;
+  }];
     users = {
       "chris" = import ./home.nix;
     };
@@ -103,9 +115,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+  
+  #programs.neovim = {
+  #  enable = true;
+  #  defaultEditor = true;
+  #  viAlias = true;
+  #  vimAlias = true;
+  #  withNodeJs = true;
+  #  withPython3 = true;
+  #  withRuby = true;
+  #};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

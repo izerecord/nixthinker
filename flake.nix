@@ -14,8 +14,8 @@
     nixosConfigurations.nixthinker = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        inputs.stylix.nixosModules.stylix
         ./hosts/default/configuration.nix
+        inputs.stylix.nixosModules.stylix
         #inputs.home-manager.nixosModules.default
       ];
     };

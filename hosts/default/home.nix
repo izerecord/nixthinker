@@ -19,24 +19,38 @@
   # environment.
   home.packages = [
     pkgs.git
-
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    pkgs.stow
+    pkgs.fzf
+    pkgs.gnumake
   ];
+
+  programs.btop.enable = true;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+  # TODO
+  home.file.".config/nvim/lua/stylix-theme.lua".text = ''
+    return {
+      base00 = "${config.lib.stylix.colors.base00}",
+      base01 = "${config.lib.stylix.colors.base01}",
+      base02 = "${config.lib.stylix.colors.base02}",
+      base03 = "${config.lib.stylix.colors.base03}",
+      base04 = "${config.lib.stylix.colors.base04}",
+      base05 = "${config.lib.stylix.colors.base05}",
+      base06 = "${config.lib.stylix.colors.base06}",
+      base07 = "${config.lib.stylix.colors.base07}",
+      base08 = "${config.lib.stylix.colors.base08}",
+      base09 = "${config.lib.stylix.colors.base09}",
+      base0A = "${config.lib.stylix.colors.base0A}",
+      base0B = "${config.lib.stylix.colors.base0B}",
+      base0C = "${config.lib.stylix.colors.base0C}",
+      base0D = "${config.lib.stylix.colors.base0D}",
+      base0E = "${config.lib.stylix.colors.base0E}",
+      base0F = "${config.lib.stylix.colors.base0F}",
+    }
+  '';
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
