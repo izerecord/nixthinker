@@ -9,10 +9,24 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./packages.nix
+      ./home.nix
     ];
   # stylix
   stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+  stylix.fonts.monospace.name = "FiraCode Nerd Font Mono";
+  stylix.fonts.monospace.package = pkgs.nerd-fonts.fira-code;
+
+  stylix.opacity.terminal = 0.9;
+  stylix.fonts.sizes.terminal = 14;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+#  qt = {
+#    enable = true;
+#    platformTheme = "qt5ct";
+#  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -83,6 +97,7 @@
     packages = with pkgs; [
     #  thunderbird
     ];
+    shell = pkgs.fish;
   };
 
   # Enable automatic login for the user.
@@ -90,21 +105,11 @@
   services.displayManager.autoLogin.user = "chris";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  # Install firefox.
-  programs.firefox.enable = true;
+  #systemd.services."getty@tty1".enable = false;
+  #systemd.services."autovt@tty1".enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
