@@ -1,6 +1,35 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    git
+    wget
+    fd
+    lsd
+    ripgrep 
+    bat
+    lazygit
+
+    stow
+
+    ghostty
+    
+    btop
+    fastfetch
+    starship
+    
+    gcc
+   
+    fzf
+
+    go-task
+    fluxcd
+    
+    # Hyprland
+    hyprpaper
+    waybar
+    hyprlock
+  ];
   programs.firefox.enable = true;
   programs.neovim = {
     enable = true;
@@ -26,29 +55,5 @@
     transientPrompt.enable = true;
   };
   
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-    fd
-    lsd
-    ripgrep 
-    
-    #ghostty
-
-    fastfetch
-    starship
-    
-    gcc
-    #gnumake
-    #cmake
-    #libtool
-    #unzip
-    #pkg-config
-    
-    #fzf
-
-    go-task
-    fluxcd
-  ];
 }
 

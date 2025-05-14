@@ -2,39 +2,37 @@
 
 {
   users.users.chris.isNormalUser = true;
+  home-manager.backupFileExtension = "backup";
   home-manager.users.chris = { pkgs, ... }: {
   home.packages = with pkgs; [ 
-    gnomeExtensions.space-bar
-    gnomeExtensions.switcher
   ];
+
+  # stylix waybar
+  #stylix.targets.waybar.enableLeftBackColors = true;
+  #stylix.targets.waybar.enableCenterBackColors = true;
+  stylix.fonts.sizes.desktop = 12;
+  
+  # Hyprland
+  programs.waybar = {
+    enable = true;
+  };
+
+  services.hyprpaper = {
+    enable = true;
+  };
+
   programs.ghostty = {
     enable = true;
     settings = {
       gtk-titlebar = false;
     };
   };
-
-  qt.enable = true;
+  qt = {
+    enable = true;
+  };
   gtk = {
     enable = true;
   };
-  dconf.settings = {
-    "org/gnome/mutter" = {
-      "overlay-key" = ""; # disable plain Super key
-    };   # ...
-    "org/gnome/shell/extensions/switcher" = {
-      show-switcher = ["<Super>space"];
-    };
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      # `gnome-extensions list` for a list
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        space-bar.extensionUuid
-        switcher.extensionUuid
-      ];
-    };
-  };
-  #qt.platformTheme.name = "gtk";
   # This value determines the Home Manager release that your configuration is 
   # compatible with. This helps avoid breakage when a new Home Manager release 
   # introduces backwards incompatible changes. 

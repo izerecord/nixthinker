@@ -11,22 +11,31 @@
       ./packages.nix
       ./home.nix
     ];
-  # stylix
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # stylix color theme
   stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  stylix.polarity = "dark";
   stylix.fonts.monospace.name = "FiraCode Nerd Font Mono";
   stylix.fonts.monospace.package = pkgs.nerd-fonts.fira-code;
+  # stylix base16 color scheme
+  stylix.image = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/refs/heads/master/misty-boat.jpg";
+    sha256 = "sha256-mLKyJz+WnJ7AIkAaYCHqFb19a6fqi0tLvHOFRFjNQpQ=";
+  };
 
+  # stylix terminal
   stylix.opacity.terminal = 0.9;
   stylix.fonts.sizes.terminal = 14;
+
+  # stylix exceptions
+  stylix.targets.fish.enable = false;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
-#  qt = {
-#    enable = true;
-#    platformTheme = "qt5ct";
-#  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -34,8 +43,6 @@
 
   networking.hostName = "nixthinker"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -59,19 +66,22 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+  
   # Hyprland
   programs.hyprland.enable = true; # enable Hyprland
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "euro";
-  };
+  #services.xserver.xkb = {
+  #  layout = "us";
+  #  variant = "euro";
+  #};
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
