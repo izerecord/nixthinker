@@ -9,18 +9,24 @@
     ripgrep 
     bat
     lazygit
-
-    stow
-
+    fzf
     ghostty
     
+    # tooling, helper
+    stow
+    nh
     btop
     fastfetch
     starship
+    killall
+
+    # os stuff
+    xdg-desktop-portal-cosmic
     
+    # compiling
     gcc
-   
-    fzf
+
+    wgnord
 
     go-task
     fluxcd
@@ -30,6 +36,7 @@
     waybar
     hyprlock
   ];
+  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
   programs.neovim = {
     enable = true;

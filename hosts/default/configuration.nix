@@ -42,6 +42,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixthinker"; # Define your hostname.
+  networking.wireguard.enable = true;  
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -68,14 +70,17 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  # Enable the COSMIC login manager
-  services.displayManager.cosmic-greeter.enable = true;
+  # Enable sddm login manager
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
 
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
-  
+  services.displayManager.cosmic-greeter.enable = true;
+
   # Hyprland
   programs.hyprland.enable = true; # enable Hyprland
+  programs.hyprlock.enable = true;
 
   # Configure keymap in X11
   #services.xserver.xkb = {
@@ -113,6 +118,7 @@
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "chris";
+  services.displayManager.defaultSession = "hyprland";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   #systemd.services."getty@tty1".enable = false;
