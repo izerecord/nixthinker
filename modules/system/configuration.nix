@@ -6,25 +6,6 @@
     "flakes"
   ];
 
-  # stylix color theme
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  stylix.polarity = "dark";
-  stylix.fonts.monospace.name = "FiraCode Nerd Font Mono";
-  stylix.fonts.monospace.package = pkgs.nerd-fonts.fira-code;
-  # stylix base16 color scheme
-  stylix.image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/refs/heads/master/misty-boat.jpg";
-    sha256 = "sha256-mLKyJz+WnJ7AIkAaYCHqFb19a6fqi0tLvHOFRFjNQpQ=";
-  };
-
-  # stylix terminal
-  stylix.opacity.terminal = 0.9;
-  stylix.fonts.sizes.terminal = 14;
-
-  # stylix exceptions
-  stylix.targets.fish.enable = false;
-
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
@@ -62,12 +43,12 @@
   # services.xserver.enable = true;
 
   # Enable sddm login manager
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   # Enable the COSMIC desktop environment
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
 
   # Hyprland
   programs.hyprland.enable = true; # enable Hyprland
@@ -95,25 +76,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.chris = {
-
-    isNormalUser = true;
-    description = "chris";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    # packages = with pkgs; [
-    #   #  thunderbird
-    # ];
-    shell = pkgs.fish;
-  };
-
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "chris";
-  services.displayManager.defaultSession = "hyprland";
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "chris";
+  # services.displayManager.defaultSession = "hyprland";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   #systemd.services."getty@tty1".enable = false;

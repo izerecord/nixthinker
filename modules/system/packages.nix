@@ -15,6 +15,11 @@
     # editors
     zed-editor
 
+    # shells
+    fish
+    bash
+    zsh
+
     # tooling, helper
     stow
     btop
@@ -63,6 +68,10 @@
   };
 
   programs.fish = {
+    enable = true;
+  };
+
+  programs.zsh = {
     enable = true;
   };
 
