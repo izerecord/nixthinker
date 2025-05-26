@@ -10,14 +10,24 @@
     };
   };
 
-  outputs = { nixpkgs, stylix, ... }@inputs: {
-    nixosConfigurations.nixthinker = nixpkgs.lib.nixosSystem {
-      #specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/default/configuration.nix
-        stylix.nixosModules.stylix
-        inputs.home-manager.nixosModules.default
-      ];
+  outputs =
+    { nixpkgs, stylix, ... }@inputs:
+    {
+      nixosConfigurations.nixthinker = nixpkgs.lib.nixosSystem {
+        #specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/nixthinker
+          stylix.nixosModules.stylix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      nixosConfigurations.nixdesktop = nixpkgs.lib.nixosSystem {
+        #specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/nixdesktop
+          stylix.nixosModules.stylix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
-  };
 }

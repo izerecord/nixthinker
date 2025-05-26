@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -6,23 +6,28 @@
     wget
     fd
     lsd
-    ripgrep 
+    ripgrep
     bat
     lazygit
     fzf
     ghostty
-    
+
+    # editors
+    zed-editor
+
     # tooling, helper
     stow
-    nh
     btop
     fastfetch
     starship
     killall
 
-    # os stuff
-    xdg-desktop-portal-cosmic
-    
+    # nix stuff
+    nh
+    nil
+    nixd
+    nixfmt-rfc-style
+
     # compiling
     gcc
 
@@ -30,12 +35,16 @@
 
     go-task
     fluxcd
-    
+
     # Hyprland
     hyprpaper
     waybar
     hyprlock
+
+    # Cosmic
+    xdg-desktop-portal-cosmic
   ];
+
   programs.nix-ld.enable = true;
   programs.firefox.enable = true;
   programs.neovim = {
@@ -47,20 +56,18 @@
     #withPython3 = true;
     #withRuby = true;
   };
-  
+
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
   };
-  
+
   programs.fish = {
     enable = true;
   };
-  
+
   programs.starship = {
     enable = true;
     transientPrompt.enable = true;
   };
-  
 }
-
