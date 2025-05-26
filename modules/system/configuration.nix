@@ -47,7 +47,7 @@
   services.displayManager.sddm.wayland.enable = true;
 
   # Enable the COSMIC desktop environment
-  # services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
 
   # Hyprland
@@ -77,9 +77,9 @@
   # services.xserver.libinput.enable = true;
 
   # Enable automatic login for the user.
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "chris";
-  # services.displayManager.defaultSession = "hyprland";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "chris";
+  services.displayManager.defaultSession = "hyprland";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   #systemd.services."getty@tty1".enable = false;
