@@ -16,6 +16,10 @@
     ghostty
     tmux
 
+    # os conrol tools
+    brightnessctl
+    bluetui
+
     # editors
     zed-editor
 
@@ -27,9 +31,11 @@
     # tooling, helper
     stow
     btop
+    lm_sensors
     fastfetch
     starship
     killall
+    pulseaudio
 
     # nix stuff
     nh
@@ -42,8 +48,11 @@
     gcc
     cmake
 
+    # vpn
     wgnord
 
+    just
+    just-lsp
     go-task
     fluxcd
 
@@ -52,6 +61,7 @@
     waybar
     hyprlock
     wofi
+    rofi-wayland
 
     # Cosmic
     xdg-desktop-portal-cosmic
