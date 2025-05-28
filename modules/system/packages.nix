@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+
+    # terminal stuff
     git
     wget
     fd
@@ -10,7 +12,9 @@
     bat
     lazygit
     fzf
+
     ghostty
+    tmux
 
     # editors
     zed-editor
@@ -32,9 +36,11 @@
     nil
     nixd
     nixfmt-rfc-style
+    nix-index
 
     # compiling
     gcc
+    cmake
 
     wgnord
 
@@ -45,10 +51,17 @@
     hyprpaper
     waybar
     hyprlock
+    wofi
 
     # Cosmic
     xdg-desktop-portal-cosmic
+
+    # media
+    spotify
   ];
+
+  programs.command-not-found.enable = false;
+  programs.nix-index.enable = true;
 
   programs.nix-ld.enable = true;
   programs.firefox.enable = true;
@@ -78,5 +91,16 @@
   programs.starship = {
     enable = true;
     transientPrompt.enable = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
 }

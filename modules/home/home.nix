@@ -11,6 +11,6 @@
     # packages = with pkgs; [
     #   #  thunderbird
     # ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 }
