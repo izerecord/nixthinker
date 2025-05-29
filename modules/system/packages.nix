@@ -36,6 +36,7 @@
     starship
     killall
     pulseaudio
+    pavucontrol
 
     # nix stuff
     nh
@@ -44,9 +45,13 @@
     nixfmt-rfc-style
     nix-index
 
+    # languages
+    python3Full
+
     # compiling
     gcc
     cmake
+    gnumake
 
     # vpn
     wgnord
@@ -68,6 +73,10 @@
 
     # media
     spotify
+
+    # gaming
+    protontricks
+    mangohud
   ];
 
   programs.command-not-found.enable = false;
@@ -109,8 +118,13 @@
 
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
   };
+  programs.gamemode.enable = true;
 }

@@ -27,6 +27,11 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.extraLocales = [
+    "en_US.UTF-8/UTF-8"
+    "en_GB.UTF-8/UTF-8"
+    "de_DE.UTF-8/UTF-8"
+  ];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -42,6 +47,16 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
+
+  # Enable the Wayland windowing system for electron apps.
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # gpu stuff
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Enable sddm login manager
   services.displayManager.sddm.enable = true;
