@@ -12,5 +12,8 @@
 
   networking.hostName = "nixdesktop";
 
+  hardware.amdgpu.overdrive.enable = true;
+  services.lact.enable = true;
+
   system.stateVersion = "25.05";
 }

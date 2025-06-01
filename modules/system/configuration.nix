@@ -46,7 +46,8 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the Wayland windowing system for electron apps.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
