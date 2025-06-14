@@ -9,6 +9,7 @@
     fd
     lsd
     ripgrep
+    tree
     bat
     lazygit
     fzf
