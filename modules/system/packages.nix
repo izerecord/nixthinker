@@ -24,6 +24,9 @@
     # editors
     zed-editor
 
+    # browsers
+    tor-browser
+
     # shells
     fish
     bash
