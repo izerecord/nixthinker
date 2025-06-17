@@ -26,6 +26,7 @@
 
     # browsers
     tor-browser
+    brave
 
     # shells
     fish
@@ -75,8 +76,14 @@
     # Cosmic
     xdg-desktop-portal-cosmic
 
+    # openssh
+    # gvfs
+    sshfs
+
     # media
     spotify
+    mpv
+    celluloid
 
     # gaming
     protontricks
