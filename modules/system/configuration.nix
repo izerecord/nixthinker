@@ -58,6 +58,8 @@
     enable = true;
     enable32Bit = true;
   };
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Enable sddm login manager
   services.displayManager.sddm.enable = true;
@@ -66,6 +68,13 @@
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
+
+  services.blueman.enable = true;
+
+  # used for gnome-calendar
+  services.gnome.evolution-data-server.enable = true;
+  services.gnome.gnome-online-accounts.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Hyprland
   programs.hyprland.enable = true; # enable Hyprland
