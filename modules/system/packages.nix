@@ -99,7 +99,7 @@
 
   programs.nix-ld.enable = true;
   programs.firefox.enable = true;
-  programs.firefox.nativeMessagingHosts.ff2mpv = true;
+  programs.firefox.nativeMessagingHosts.packages = [ pkgs.ff2mpv-rust ];
   programs.thunderbird.enable = true;
   programs.dconf.enable = true;
 
