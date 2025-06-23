@@ -24,13 +24,18 @@
     # editors
     zed-editor
 
-    # browsers
+    # browser stuff
     tor-browser
     brave
+    ff2mpv-rust
 
     # mail calender etc
     thunderbird
     gnome-calendar
+    signal-desktop
+
+    # pw manager
+    bitwarden
 
     # shells
     fish
@@ -46,6 +51,13 @@
     killall
     pulseaudio
     pavucontrol
+    p7zip
+    unrar
+
+    # windows and gaming stuff
+    bottles
+    nexusmods-app
+    wine
 
     # nix stuff
     nh
@@ -56,11 +68,14 @@
 
     # languages
     python3Full
+    pdm
+    run
 
     # compiling
     gcc
     cmake
     gnumake
+    # stdenv.cc.cc.lib
 
     # vpn
     wgnord
