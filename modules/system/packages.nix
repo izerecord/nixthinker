@@ -92,6 +92,10 @@
     wofi
     rofi-wayland
 
+    # theming
+    nwg-look
+    qt6ct
+
     # Cosmic
     xdg-desktop-portal-cosmic
 
