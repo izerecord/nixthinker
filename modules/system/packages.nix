@@ -53,6 +53,7 @@
     pavucontrol
     p7zip
     unrar
+    dnsutils
 
     # windows and gaming stuff
     bottles
