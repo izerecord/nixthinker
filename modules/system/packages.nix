@@ -92,6 +92,7 @@
     hyprlock
     wofi
     rofi-wayland
+    hyprshot
 
     # theming
     nwg-look
