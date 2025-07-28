@@ -65,6 +65,7 @@
     inkscape
     pinta
     libreoffice
+    digikam
 
     # windows and gaming stuff
     bottles
@@ -90,7 +91,6 @@
     # stdenv.cc.cc.lib
 
     # vpn
-    wgnord
 
     just
     just-lsp
