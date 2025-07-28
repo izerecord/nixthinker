@@ -97,6 +97,7 @@
     hyprlock
     wofi
     rofi-wayland
+    hyprshot
 
     # theming
     nwg-look
@@ -136,6 +137,13 @@
     #withNodeJs = true;
     #withPython3 = true;
     #withRuby = true;
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/chris/nixthinker"; # sets NH_OS_FLAKE variable for you
   };
 
   programs.fzf = {
