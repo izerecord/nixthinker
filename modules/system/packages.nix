@@ -60,6 +60,12 @@
     # document things
     papers
 
+    # image, document editing stuff
+    gimp
+    inkscape
+    pinta
+    libreoffice
+
     # windows and gaming stuff
     bottles
     nexusmods-app
