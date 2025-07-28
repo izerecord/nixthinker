@@ -55,6 +55,11 @@
     unrar
     dnsutils
 
+    nextcloud-client
+
+    # document things
+    papers
+
     # windows and gaming stuff
     bottles
     nexusmods-app

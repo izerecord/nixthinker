@@ -22,6 +22,18 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # NFS
+  fileSystems."/mnt/nas" = {
+    device = "ubuntu-nas:/srv/nas";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+    ];
+  };
+  # optional, but ensures rpc-statsd is running for on demand mounting
+  boot.supportedFilesystems = [ "nfs" ];
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
