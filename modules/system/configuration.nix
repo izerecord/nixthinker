@@ -82,6 +82,7 @@
   # services.displayManager.cosmic-greeter.enable = true;
 
   services.blueman.enable = true;
+  services.dbus.enable = true;
 
   # used for gnome-calendar
   services.gnome.evolution-data-server.enable = true;
