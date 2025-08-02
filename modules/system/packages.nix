@@ -90,8 +90,11 @@
     gnumake
     # stdenv.cc.cc.lib
 
-    # vpn
+    # vpn, network things
+    # wgnord
+    networkmanagerapplet
 
+    # tasks
     just
     just-lsp
     go-task
