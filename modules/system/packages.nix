@@ -3,76 +3,78 @@
 {
   environment.systemPackages = with pkgs; [
 
-    # terminal stuff
-    git
-    wget
+    # terminal
+    bat
     fd
+    fzf
+    git
+    ghostty
+    lazygit
     lsd
     ripgrep
-    tree
-    bat
-    lazygit
-    fzf
-
-    ghostty
     tmux
+    tree
+    wget
 
-    # os conrol tools
+    # system control tools
     brightnessctl
     # bluetui
 
     # editors
     zed-editor
 
-    # browser stuff
-    tor-browser
+    # browsers
     brave
     ff2mpv-rust
+    tor-browser
 
-    # mail calender etc
-    thunderbird
+    # mail, calendar, messaging
     gnome-calendar
     signal-desktop
+    thunderbird
 
-    # pw manager
+    # password manager
     bitwarden
 
     # shells
-    fish
     bash
+    fish
     zsh
 
-    # tooling, helper
-    stow
+    # utilities
     btop
-    lm_sensors
-    fastfetch
-    starship
-    killall
-    pulseaudio
-    pavucontrol
-    p7zip
-    unrar
     dnsutils
+    fastfetch
+    killall
+    lm_sensors
+    p7zip
+    starship
+    stow
+    unrar
 
+    # audio
+    pavucontrol
+    pulseaudio
+
+    # sync
     nextcloud-client
 
-    # document things
+    # documents
     papers
 
-    # image, document editing stuff
+    # graphics and office
+    digikam
     gimp
     inkscape
-    pinta
     libreoffice
-    digikam
+    pinta
 
-    # windows and gaming stuff
+    # windows and compatibility
     bottles
     nexusmods-app
     wine
 
-    # nix stuff
+    # nix tooling
     nh
     nil
     nixd
@@ -80,53 +82,53 @@
     nix-index
 
     # languages
-    python3Full
     pdm
+    python3Full
     run
 
-    # compiling
-    gcc
+    # build tools
     cmake
+    gcc
     gnumake
     # stdenv.cc.cc.lib
 
-    # vpn, network things
+    # networking and VPN
     # wgnord
     networkmanagerapplet
 
-    # tasks
+    # tasks and orchestration
+    fluxcd
+    go-task
     just
     just-lsp
-    go-task
-    fluxcd
 
-    # Hyprland
-    hyprpaper
-    waybar
+    # Hyprland and Wayland
     hyprlock
-    wofi
-    rofi-wayland
+    hyprpaper
     hyprshot
+    rofi-wayland
+    waybar
+    wofi
 
     # theming
     nwg-look
     qt6ct
 
-    # Cosmic
+    # COSMIC
     xdg-desktop-portal-cosmic
 
-    # openssh
+    # remote filesystems
     # gvfs
     sshfs
 
     # media
-    spotify
-    mpv
     celluloid
+    mpv
+    spotify
 
-    # gaming
-    protontricks
+    # gaming utilities
     mangohud
+    protontricks
   ];
 
   programs.command-not-found.enable = false;
