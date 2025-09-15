@@ -83,7 +83,7 @@
 
     # languages
     pdm
-    python3Full
+    python3
     run
 
     # build tools
