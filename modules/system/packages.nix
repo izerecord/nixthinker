@@ -106,7 +106,7 @@
     hyprlock
     hyprpaper
     hyprshot
-    rofi-wayland
+    rofi
     waybar
     wofi
 
